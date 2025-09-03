@@ -1,0 +1,88 @@
+Information query
+1.
+SQL> SELECT Program.Program_name,
+  2  COUNT(Student.Student_id) AS Total_Students
+  3  FROM
+  4  Program
+  5  LEFT JOIN
+  6  Student
+  7  ON
+  8  Program.Program_id = Student.Program_id
+  9  GROUP BY
+ 10  Program.Program_name
+ 11  ORDER BY
+ 12  Total_Students DESC;
+2.
+SQL> SELECT * FROM announcement
+  2  Where Announcement_date > '01-MAY-24'
+  3  And Announcement_date < '28-MAY-24';
+3.
+SQL> SELECT
+  2  Module.Module_name,
+  3  COUNT (Resources.Resource_id) AS Total_Resources
+  4  FROM
+  5  Module
+  6  LEFT JOIN
+  7  Resources
+  8  ON
+  9  Module.Module_id = Resources.Module_id
+ 10  WHERE
+ 11  Module.Module_name LIKE 'D%'
+ 12  GROUP BY
+ 13  Module.Module_name
+ 14  ORDER BY
+ 15  Total_Resources DESC;
+4.
+SQL> SELECT s.Student_name, p.Program_name
+  2  FROM Student s
+  3  INNER JOIN Program p ON s.Program_id = p.Program_id
+  4  INNER JOIN Student_Module sm ON s.Student_id = sm.Student_id
+  5  LEFT JOIN Assessment_Module_Student ams ON sm.Student_id=ams.Student_id and sm.Module_id=ams.Module_id
+  6  WHERE ams.Marks_gained=0;
+5.
+SQL> SELECT t.teacher_name, COUNT(DISTINCT tms.Module_id)AS Count_module
+  2  FROM teacher t
+  3  INNER JOIN Teacher_Module_Student tms ON t.Teacher_id = tms.Teacher_id
+  4  GROUP BY t.Teacher_name
+  5  HAVING COUNT(DISTINCT tms.Module_id) > 1;
+
+Transaction query
+1.
+ SELECT * FROM (
+  2  SELECT m.Module_id, m.Module_name, a.Assessment_title, a.deadline
+  3  FROM Module m
+  4  JOIN Assessment_Module_Student ams ON m.Module_id = ams.Module_id
+  5  JOIN Assessment a ON ams.Assessment_id=a.Assessment_id
+  6  ORDER BY a.deadline DESC
+  7  )
+  8  where ROWNUM =1;
+2.
+
+3.
+SELECT Program.Program_name, COUNT(Assessment.Assessment_id) AS total_assessment, AVG(Assessment_Module_Student.Marks_gained)
+  2  FROM Program
+  3  INNER JOIN Student ON Program.Program_id = Student.Program_id
+  4  INNER JOIN Assessment_Module_Student ON Student.Student_id = Assessment_Module_Student.Student_id
+  5  INNER JOIN Assessment ON Assessment_Module_Student.Assessment_id = Assessment.Assessment_id
+  6  GROUP BY Program.Program_name;
+4.
+ SELECT Student.Student_name, Assessment_Module_Student.Marks_gained
+  2  FROM Student
+  3  INNER JOIN Assessment_Module_Student ON Student.Student_id = Assessment_Module_Student.Student_id
+  4  INNER JOIN Module ON Assessment_Module_Student.Module_id= Module.Module_id
+  5  WHERE Module.Module_name = 'Database'
+  6  AND Assessment_Module_Student.Marks_gained > (
+  7  SELECT AVG(Assessment_Module_Student.Marks_gained)
+  8  FROM Assessment_Module_Student
+  9  INNER JOIN Module ON Assessment_Module_Student.Module_id=Module.Module_id
+ 10  WHERE Module.Module_name = 'Database'
+ 11  );
+5.
+SQL> SELECT Student.Student_name, SUM(Assessment_Module_Student.Marks_gained) AS Total,
+  2  case
+  3  WHEN SUM(Assessment_Module_Student.Marks_gained) >= 40 THEN 'Pass'
+  4  else 'Fail'
+  5  End as Remarks
+  6  From Student
+  7  INNER JOIN Assessment_Module_Student ON Student.Student_id = Assessment_Module_Student.Student_id
+  8  GROUP BY Student.Student_name;

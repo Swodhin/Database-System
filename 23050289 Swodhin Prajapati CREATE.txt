@@ -1,0 +1,99 @@
+SQL> CREATE TABLE Module(
+    Module_id NUMBER(10) NOT NULL PRIMARY KEY,
+    Module_name VARCHAR(40) NOT NULL,
+    Module_credits Number(10) NOT NULL,
+    Module_Duration Number(10) NOT NULL);
+
+SQL> CREATE TABLE Program(
+    Program_id NUMBER(10) NOT NULL PRIMARY KEY,
+    Program_name VARCHAR(40) NOT NULL,
+    Program_duration VARCHAR(30) NOT NULL,
+    Program_description VARCHAR(40) NOT NULL);
+
+SQL> CREATE TABLE Student(
+    Student_id NUMBER(10) NOT NULL PRIMARY KEY,
+    Student_name VARCHAR(40) NOT NULL,
+    Student_address VARCHAR(40) NOT NULL,
+    Student_no NUMBER(10) NOT NULL,
+    Enrollment_date DATE NOT NULL,
+    Program_id NUMBER(10) NOT NULL,
+    CONSTRAINT FK_programid FOREIGN KEY (Program_id)
+    REFERENCES Program(Program_id));
+
+
+SQL> Create Table Student_Module(
+    Student_id Number(10) NOT NULL,
+    Module_id Number(10) NOT NULL,
+    Constraint studentsm FOREIGN KEY (Student_id) REFERENCES Student(Student_id),
+    Constraint modulesm FOREIGN KEY (Module_id) REFERENCES Module(Module_id)
+    );
+
+
+SQL> CREATE TABLE Resources(
+            Resource_id NUMBER(10) NOT NULL PRIMARY KEY,
+            Resource_title VARCHAR(30) NOT NULL,
+            Resource_type VARCHAR(40) NOT NULL,
+            Resource_duration NUMBER(10) NOT NULL,
+            Student_id Number(10),
+            Module_id Number(10),
+    Constraint studentre FOREIGN KEY (Student_id) REFERENCES Student(Student_id),
+    Constraint modulere FOREIGN KEY (Module_id) REFERENCES Module(Module_id)
+   );
+
+SQL> CREATE TABLE Resource_Module_Student(
+  2  Resource_id NUMBER(10),
+  3  Student_id NUMBER(10),
+  4  Module_id NUMBER(10),
+  5  Resource_status VARCHAR(40),
+  6  Constraint studentrms FOREIGN KEY (Student_id) REFERENCES Student(Student_id),
+  7  Constraint resourcerms FOREIGN KEY (Resource_id) REFERENCES Resources(Resource_id),
+  8  Constraint modulerms FOREIGN KEY (Module_id) REFERENCES Module(Module_id));
+
+
+SQL> CREATE TABLE Teacher(
+    Teacher_id NUMBER(10) NOT NULL PRIMARY KEY,
+    Teacher_name VARCHAR(40) NOT NULL,
+    Teacher_email VARCHAR(40) NOT NULL,
+    Specialization VARCHAR(40) NOT NULL);
+
+SQL> CREATE TABLE Teacher_Module_Student(
+  2  Teacher_id NUMBER(10),
+  3  Student_id NUMBER(10),
+  4  Module_id NUMBER(10),
+  5  Constraint teachertms FOREIGN KEY (Teacher_id) REFERENCES Teacher(Teacher_id),
+  6  Constraint studenttms FOREIGN KEY (Student_id) REFERENCES Student(Student_id),
+  7  Constraint moduletms FOREIGN KEY (Module_id) REFERENCES Module(Module_id));
+
+SQL> CREATE TABLE Announcement(
+  2  Announcement_id NUMBER(10) NOT NULL PRIMARY KEY,
+  3  Announcement_date DATE NOT NULL,
+  4  Announcement_title VARCHAR(30) NOT NULL,
+  5  Announcement_details VARCHAR(40) NOT NULL);
+
+SQL> CREATE TABLE Ann_Std_Mod_Teacher(
+  2  Announcement_id NUMBER(10),
+  3  Student_id NUMBER(10),
+  4  Module_id NUMBER(10),
+  5  Teacher_id NUMBER(10),
+  6  Constraint studentasmt FOREIGN KEY (Student_id) REFERENCES Student(Student_id),
+  7  Constraint moduleasmt FOREIGN KEY (Module_id) REFERENCES Module(Module_id),
+  8  Constraint Announcementasmt FOREIGN KEY (Announcement_id) REFERENCES Announcement(Announcement_id),
+  9  Constraint teacherasmt FOREIGN KEY (Teacher_id) REFERENCES Teacher(Teacher_id));
+
+
+SQL> CREATE TABLE Assessment(
+  2  Assessment_id NUMBER(10) NOT NULL PRIMARY KEY,
+  3  Assessment_title VARCHAR(40) NOT NULL,
+  4  deadline DATE NOT NULL,
+  5  weightage NUMBER(10) NOT NULL);
+
+
+SQL> CREATE TABLE Assessment_Module_Student(
+  2  Assessment_id NUMBER(10),
+  3  Student_id NUMBER(10),
+  4  Module_id NUMBER(10),
+  5  Grade VARCHAR(5) NOT NULL,
+  6  Marks_gained VARCHAR(5) NOT NULL,
+  7  Constraint studentams FOREIGN KEY (Student_id) REFERENCES Student(Student_id),
+  8  Constraint moduleams FOREIGN KEY (Module_id) REFERENCES Module(Module_id),
+  9  Constraint assessmentams FOREIGN KEY (Assessment_id) REFERENCES Assessment(Assessment_id));

@@ -1,0 +1,47 @@
+SQL> DROP TABLE Ann_Std_Mod_Teacher;
+
+Table dropped.
+
+SQL> DROP TABLE Assessment_Module_Student;
+
+Table dropped.
+
+SQL> DROP TABLE Resource_Module_Student;
+
+Table dropped.
+
+SQL> DROP TABLE Teacher_Module_Student;
+
+Table dropped.
+
+SQL> DROP TABLE Student_Module;
+
+Table dropped.
+
+SQL> DROP TABLE Announcement;
+
+Table dropped.
+
+SQL> DROP TABLE Assessment;
+
+Table dropped.
+
+SQL> DROP TABLE Resources;
+
+Table dropped.
+
+SQL> DROP TABLE Teacher;
+
+Table dropped.
+
+SQL> DROP TABLE Module;
+
+Table dropped.
+
+SQL> DROP TABLE Student;
+
+Table dropped.
+
+SQL> DROP TABLE Program;
+
+Table dropped.

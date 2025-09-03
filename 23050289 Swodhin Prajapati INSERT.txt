@@ -1,0 +1,424 @@
+SQL> Insert Into Program (Program_id, Program_name, Program_duration,Program_description)
+  2  Values(1,'Computing','3 years','This is computing');
+
+1 row created.
+
+SQL> Insert Into Program (Program_id, Program_name, Program_duration,Program_description)
+  2  Values(2,'ai','3 years','This is ai');
+
+1 row created.
+
+SQL> Insert Into Program (Program_id, Program_name, Program_duration,Program_description)
+  2  Values(3,'Networking','3 years','This is Networking');
+
+1 row created.
+
+SQL> Insert Into Program (Program_id, Program_name, Program_duration,Program_description)
+  2  Values(4,'Multimedia','3 years','This is Multimedia');
+
+1 row created.
+
+SQL> Insert Into Program (Program_id, Program_name, Program_duration,Program_description)
+  2  Values(5,'Law','5 years','This is law');
+
+1 row created.
+
+SQL> Insert Into Program (Program_id, Program_name, Program_duration,Program_description)
+  2  Values(6,'Med','3 years','This is med');
+
+1 row created.
+
+SQL> Insert Into Program (Program_id, Program_name, Program_duration,Program_description)
+  2  Values(7,'Art','2 years','This is art');
+
+1 row created.
+
+SQL> Insert Into Module (Module_id,Module_name,Module_credits,Module_duration)
+  2  Values(1,'Database',120,1);
+
+1 row created.
+
+SQL> Insert Into Module (Module_id,Module_name,Module_credits,Module_duration)
+  2  Values(2,'Programming',110,1);
+
+1 row created.
+
+SQL> Insert Into Module (Module_id,Module_name,Module_credits,Module_duration)
+  2  Values(3,'Network Security',130,2);
+
+1 row created.
+
+SQL> Insert Into Module (Module_id,Module_name,Module_credits,Module_duration)
+  2  Values(4,'Design',110,2);
+
+1 row created.
+
+SQL> Insert Into Module (Module_id,Module_name,Module_credits,Module_duration)
+  2  Values(5,'Criminal law',130,2);
+
+1 row created.
+
+SQL> Insert Into Module (Module_id,Module_name,Module_credits,Module_duration)
+  2  Values(6,'Chemistry',140,2);
+
+1 row created.
+
+SQL> Insert Into Module (Module_id,Module_name,Module_credits,Module_duration)
+  2  Values(7,'Sketching',120,1);
+
+1 row created.
+
+SQL> INSERT INTO Teacher( Teacher_id, Teacher_name, Teacher_email, Specialization)
+  2  Values(1,'Ram','ram@gmail.com','Database');
+
+1 row created.
+
+SQL> INSERT INTO Teacher( Teacher_id, Teacher_name, Teacher_email, Specialization)
+  2  Values(2,'Jack','jack@gmail.com','Programming');
+
+1 row created.
+
+SQL> INSERT INTO Teacher( Teacher_id, Teacher_name, Teacher_email, Specialization)
+  2  Values(3,'Jeff','jeff@gmail.com','Network Security');
+
+1 row created.
+
+SQL> INSERT INTO Teacher( Teacher_id, Teacher_name, Teacher_email, Specialization)
+  2  Values(4,'Bob','bob@gmail.com','Design');
+
+1 row created.
+
+SQL> INSERT INTO Teacher( Teacher_id, Teacher_name, Teacher_email, Specialization)
+  2  Values(5,'Rob','Rob@gmail.com','Criminal law');
+
+1 row created.
+
+SQL> INSERT INTO Teacher( Teacher_id, Teacher_name, Teacher_email, Specialization)
+  2  Values(6,'Garry','Garry@gmail.com','Chemistry');
+
+1 row created.
+
+SQL> INSERT INTO Teacher( Teacher_id, Teacher_name, Teacher_email, Specialization)
+  2  Values(7,'Barry','Barry@gmail.com','Sketching');
+
+
+SQL> INSERT INTO Student(Student_id, Student_name,Student_address, Student_no, Enrollment_date, Program_id)
+  2  Values (1,'Swodhin','Bhaktapur',9840633988,DATE '2024-1-1',1);
+
+1 row created.
+
+SQL> INSERT INTO Student(Student_id, Student_name,Student_address, Student_no, Enrollment_date, Program_id)
+  2  Values (2,'Ramesh','Bhaktapur',9840633981,DATE '2024-1-1',2);
+
+1 row created.
+
+SQL> INSERT INTO Student(Student_id, Student_name,Student_address, Student_no, Enrollment_date, Program_id)
+  2  Values (3,'Reema','Kathmandu',9840633982,DATE '2024-1-1',3);
+
+1 row created.
+
+SQL> INSERT INTO Student(Student_id, Student_name,Student_address, Student_no, Enrollment_date, Program_id)
+  2  Values (4,'Harry','Janakpur',9840633984,DATE '2024-3-1',4);
+
+1 row created.
+
+SQL> INSERT INTO Student(Student_id, Student_name,Student_address, Student_no, Enrollment_date, Program_id)
+  2  Values (5,'Hari','Pokhara',9840633985,DATE '2024-2-1',5);
+
+1 row created.
+
+SQL> INSERT INTO Student(Student_id, Student_name,Student_address, Student_no, Enrollment_date, Program_id)
+  2  Values (6,'Larry','Chitwan',9840633986,DATE '2024-2-1',6);
+
+1 row created.
+
+SQL> INSERT INTO Student(Student_id, Student_name,Student_address, Student_no, Enrollment_date, Program_id)
+  2  Values (7,'Barry','Dharan',9840633987,DATE '2024-1-1',7);
+
+SQL> INSERT INTO Student_Module (Student_id, Module_id)
+    Values(1,1);
+
+1 row created.
+
+SQL> INSERT INTO Student_Module (Student_id, Module_id)
+    Values(2,2);
+
+1 row created.
+
+SQL> INSERT INTO Student_Module (Student_id, Module_id)
+    Values(3,3);
+
+1 row created.
+
+SQL> INSERT INTO Student_Module (Student_id, Module_id)
+    Values(4,4);
+
+1 row created.
+
+SQL> INSERT INTO Student_Module (Student_id, Module_id)
+    Values(5,5);
+
+1 row created.
+
+SQL> INSERT INTO Student_Module (Student_id, Module_id)
+    Values(6,6);
+
+1 row created.
+
+SQL> INSERT INTO Student_Module (Student_id, Module_id)
+    Values(7,7);
+
+1 row created.
+
+
+SQL> INSERT INTO Resources (Resource_id, Student_id, Module_id, Resource_title, Resource_type, Resource_duration)
+    VALUES (1,1,1,'sql commands','txt',5);
+
+1 row created.
+
+SQL> INSERT INTO Resources (Resource_id, Student_id, Module_id, Resource_title, Resource_type, Resource_duration)
+    VALUES (2,2,2,'java code','txt',10);
+
+1 row created.
+
+SQL> INSERT INTO Resources (Resource_id, Student_id, Module_id, Resource_title, Resource_type, Resource_duration)
+    VALUES (3,3,3,'cisco racer','pdf',8);
+
+1 row created.
+
+SQL> INSERT INTO Resources (Resource_id, Student_id, Module_id, Resource_title, Resource_type, Resource_duration)
+    VALUES (4,4,4,'photoshop','img',10);
+
+1 row created.
+
+SQL> INSERT INTO Resources (Resource_id, Student_id, Module_id, Resource_title, Resource_type, Resource_duration)
+    VALUES (5,5,5,'laws','txt',20);
+
+1 row created.
+
+SQL> INSERT INTO Resources (Resource_id, Student_id, Module_id, Resource_title, Resource_type, Resource_duration)
+    VALUES (6,6,6,'Chemical mixture','txt',10);
+
+1 row created.
+
+SQL> INSERT INTO Resources (Resource_id, Student_id, Module_id, Resource_title, Resource_type, Resource_duration)
+    VALUES (7,7,7,'Drawing','img',4);
+
+1 row created.
+
+
+SQL> INSERT INTO Resource_Module_Student (Resource_id,Student_id,Module_id,Resource_status)
+  2  VALUES (1,1,1,'Completed');
+
+1 row created.
+
+SQL> INSERT INTO Resource_Module_Student (Resource_id,Student_id,Module_id,Resource_status)
+  2  VALUES (2,2,2,'Completed');
+
+1 row created.
+
+SQL> INSERT INTO Resource_Module_Student (Resource_id,Student_id,Module_id,Resource_status)
+  2  VALUES (3,3,3,'Completed');
+
+1 row created.
+
+SQL> INSERT INTO Resource_Module_Student (Resource_id,Student_id,Module_id,Resource_status)
+  2  VALUES (4,4,4,'Completed');
+
+1 row created.
+
+SQL> INSERT INTO Resource_Module_Student (Resource_id,Student_id,Module_id,Resource_status)
+  2  VALUES (5,5,5,'Not completed');
+
+1 row created.
+
+SQL> INSERT INTO Resource_Module_Student (Resource_id,Student_id,Module_id,Resource_status)
+  2  VALUES (6,6,6,'Not completed');
+
+1 row created.
+
+SQL> INSERT INTO Resource_Module_Student (Resource_id,Student_id,Module_id,Resource_status)
+  2  VALUES (7,7,7,'Not completed');
+
+1 row created.
+
+
+SQL> INSERT INTO Teacher_Module_Student (Teacher_id,Student_id,Module_id)
+    VALUES (1,1,1);
+
+1 row created.
+
+SQL> INSERT INTO Teacher_Module_Student (Teacher_id,Student_id,Module_id)
+    VALUES (2,2,2);
+
+1 row created.
+
+SQL> INSERT INTO Teacher_Module_Student (Teacher_id,Student_id,Module_id)
+    VALUES (3,3,3);
+
+1 row created.
+
+SQL> INSERT INTO Teacher_Module_Student (Teacher_id,Student_id,Module_id)
+    VALUES (4,4,4);
+
+1 row created.
+
+SQL> INSERT INTO Teacher_Module_Student (Teacher_id,Student_id,Module_id)
+    VALUES (5,5,5);
+
+1 row created.
+
+SQL> INSERT INTO Teacher_Module_Student (Teacher_id,Student_id,Module_id)
+    VALUES (6,6,6);
+
+1 row created.
+
+SQL> INSERT INTO Teacher_Module_Student (Teacher_id,Student_id,Module_id)
+    VALUES (7,7,7);
+
+1 row created.
+
+
+
+SQL> INSERT INTO Announcement (Announcement_id,Announcement_date,Announcement_title,Announcement_details)
+    VALUES(1,DATE '2024-4-20','Assignment Deadline Tommorow','Please submit your assignments on time');
+
+1 row created.
+
+SQL> INSERT INTO Announcement (Announcement_id,Announcement_date,Announcement_title,Announcement_details)
+    VALUES(2,DATE '2024-5-2','Lecture classes are over','Students no need to lecture');
+
+1 row created.
+
+SQL> INSERT INTO Announcement (Announcement_id,Announcement_date,Announcement_title,Announcement_details)
+    VALUES(3,DATE '2024-4-25','Practical Tommorow','Cisco packet racer practical');
+
+1 row created.
+
+SQL> INSERT INTO Announcement (Announcement_id,Announcement_date,Announcement_title,Announcement_details)
+    VALUES(4,DATE '2024-5-10','Extra Classes','You have extra class');
+
+1 row created.
+
+SQL> INSERT INTO Announcement (Announcement_id,Announcement_date,Announcement_title,Announcement_details)
+    VALUES(5,DATE '2024-5-15','Exam coming soon','Please prepare for exam');
+
+1 row created.
+
+SQL> INSERT INTO Announcement (Announcement_id,Announcement_date,Announcement_title,Announcement_details)
+    VALUES(6,DATE '2024-5-15','Field Visit','Please arrive on time');
+
+1 row created.
+
+SQL> INSERT INTO Announcement (Announcement_id,Announcement_date,Announcement_title,Announcement_details)
+    VALUES(7,DATE '2024-5-20','Workshop class','Special guest teacher');
+
+1 row created.
+
+
+SQL> INSERT INTO Ann_Std_Mod_Teacher (Announcement_id,Student_id,Module_id,Teacher_id)
+  2  Values (1,1,1,1);
+
+1 row created.
+
+SQL> INSERT INTO Ann_Std_Mod_Teacher (Announcement_id,Student_id,Module_id,Teacher_id)
+  2  Values (2,2,2,2);
+
+1 row created.
+
+SQL> INSERT INTO Ann_Std_Mod_Teacher (Announcement_id,Student_id,Module_id,Teacher_id)
+  2  Values (3,3,3,3);
+
+1 row created.
+
+SQL> INSERT INTO Ann_Std_Mod_Teacher (Announcement_id,Student_id,Module_id,Teacher_id)
+  2  Values (4,4,4,4);
+
+1 row created.
+
+SQL> INSERT INTO Ann_Std_Mod_Teacher (Announcement_id,Student_id,Module_id,Teacher_id)
+  2  Values (5,5,5,5);
+
+1 row created.
+
+SQL> INSERT INTO Ann_Std_Mod_Teacher (Announcement_id,Student_id,Module_id,Teacher_id)
+  2  Values (6,6,6,6);
+
+1 row created.
+
+SQL> INSERT INTO Ann_Std_Mod_Teacher (Announcement_id,Student_id,Module_id,Teacher_id)
+  2  Values (7,7,7,7);
+
+1 row created.
+
+
+SQL> INSERT INTO Assessment (Assessment_id, Assessment_title,deadline,weightage)
+        Values (1,'Database coursework',DATE '2024-5-23','100');
+
+1 row created.
+
+SQL> INSERT INTO Assessment (Assessment_id, Assessment_title,deadline,weightage)
+        Values (2,'Coding Assignment',DATE '2024-5-4','50');
+
+1 row created.
+
+SQL> INSERT INTO Assessment (Assessment_id, Assessment_title,deadline,weightage)
+        Values (3,'Practical of cisco ',DATE '2024-5-12','50');
+
+1 row created.
+
+SQL> INSERT INTO Assessment (Assessment_id, Assessment_title,deadline,weightage)
+        Values (4,'Graphic design project',DATE '2024-5-14','50');
+
+1 row created.
+
+SQL> INSERT INTO Assessment (Assessment_id, Assessment_title,deadline,weightage)
+        Values (5,'Report on woman law',DATE '2024-5-1','100');
+
+1 row created.
+
+SQL> INSERT INTO Assessment (Assessment_id, Assessment_title,deadline,weightage)
+        Values (6,'Chemical distribution report',DATE '2024-5-1','50');
+
+1 row created.
+
+SQL> INSERT INTO Assessment (Assessment_id, Assessment_title,deadline,weightage)
+        Values (7,'Hill Sketch',DATE '2024-5-30','50');
+
+1 row created.
+
+
+SQL> INSERT INTO Assessment_Module_Student (Assessment_id,Student_id,Module_id,Grade,Marks_gained)
+    Values (1,1,1,'A',90);
+
+1 row created.
+
+SQL> INSERT INTO Assessment_Module_Student (Assessment_id,Student_id,Module_id,Grade,Marks_gained)
+    Values (2,2,2,'B',80);
+
+1 row created.
+
+SQL> INSERT INTO Assessment_Module_Student (Assessment_id,Student_id,Module_id,Grade,Marks_gained)
+    Values (3,3,3,'C',70);
+
+1 row created.
+
+SQL> INSERT INTO Assessment_Module_Student (Assessment_id,Student_id,Module_id,Grade,Marks_gained)
+    Values (4,4,4,'D+',68);
+
+1 row created.
+
+SQL> INSERT INTO Assessment_Module_Student (Assessment_id,Student_id,Module_id,Grade,Marks_gained)
+    Values (5,5,5,'F',0);
+
+1 row created.
+
+SQL> INSERT INTO Assessment_Module_Student (Assessment_id,Student_id,Module_id,Grade,Marks_gained)
+    Values (6,6,6,'D',60);
+
+1 row created.
+
+SQL> INSERT INTO Assessment_Module_Student (Assessment_id,Student_id,Module_id,Grade,Marks_gained)
+    Values (7,7,7,'A',92);
+
+1 row created.
